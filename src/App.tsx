@@ -1,7 +1,8 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Nav from "./components/Nav";
-import Challenges from "./pages/Challenges";
+import ListChallenges from "./pages/ListChallenges";
+import Challenge from "./pages/Challenge";
 
 const App = () => {
   return (
@@ -10,7 +11,8 @@ const App = () => {
         <Nav />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/challenges" element={<Challenges />} />
+          <Route path="/challenges" element={<ListChallenges />} />
+          <Route path="/challenge/:id" element={<Challenge />} />
         </Routes>
       </BrowserRouter>
     </>
