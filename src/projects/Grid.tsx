@@ -32,16 +32,16 @@ const Grid = () => {
     if (ones === selectedOnes) {
       setTimeout(() => {
         setSelectedCells(gridEmpty);
-      }, 1000);
+      }, 300);
       setSelectedOnes(0);
     }
   }, [selectedOnes]);
 
-  const handleReset = () => {
-    const newGrid = [...gridEmpty];
-    setSelectedCells(newGrid);
-    setSelectedOnes(0);
-  };
+  // const handleReset = () => {
+  //   const newGrid = [...gridEmpty];
+  //   setSelectedCells(newGrid);
+  //   setSelectedOnes(0);
+  // };
 
   useEffect(() => {
     // calculate no. of 1s in the grid
@@ -57,17 +57,28 @@ const Grid = () => {
 
   return (
     <>
-      <div className="flex flex-col gap-3 mt-8">
+      {/* <button
+        onClick={handleReset}
+        className="text-red-700 underline mb-5 text-lg bg-red-700/20 px-3 py-1 rounded-md hover:bg-red-700/30 transition-all"
+      >
+        Reset
+      </button> */}
+      <div className="flex flex-col gap-3">
         {selectedCells.map((row, i) => (
           <div className="flex gap-3" key={i}>
             {row.map((_, j) => (
               <button
                 disabled={grid[i][j] === 0 || selectedCells[i][j] === 1}
                 onClick={() => handleClick(i, j)}
-                className={`w-10 h-10 rounded-md transition-all
-                  ${grid[i][j] === 0 && "bg-white border border-gray-200"}
+                className={`w-14 h-14 rounded-md transition-all
                   ${
-                    selectedCells[i][j] === 1 ? "bg-green-600" : "bg-gray-200"
+                    grid[i][j] === 0 &&
+                    "bg-gray-300 border-none cursor-not-allowed"
+                  }
+                  ${
+                    selectedCells[i][j] === 1
+                      ? "bg-green-600"
+                      : "border border-gray-800"
                   }`}
                 key={j}
               ></button>
@@ -75,12 +86,6 @@ const Grid = () => {
           </div>
         ))}
       </div>
-      <button
-        onClick={handleReset}
-        className="text-red-700 underline mt-5 text-lg bg-red-700/20 px-3 py-1 rounded-md hover:bg-red-700/30 transition-all"
-      >
-        Reset
-      </button>
     </>
   );
 };
