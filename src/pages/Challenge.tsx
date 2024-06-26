@@ -3,6 +3,26 @@ import Projects from "../config/Challenges";
 import { useParams } from "react-router-dom";
 import Seperator from "../components/Seperator";
 
+import { motion } from "framer-motion";
+
+const routeVariants = {
+  // transition style: pop up
+  initial: {
+    opacity: 0,
+    scale: 0.8,
+  },
+  final: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      type: "spring",
+      mass: 0.35,
+      damping: 8,
+      stiffness: 100,
+    },
+  },
+};
+
 const Challenge = () => {
   const [challenge, setChallenge] = useState<
     | {
@@ -22,7 +42,12 @@ const Challenge = () => {
 
   return (
     <>
-      <div className="sm:container mx-4 sm:mx-auto xl:px-24 py-12 flex flex-col gap-4">
+      <motion.div
+        variants={routeVariants}
+        initial="initial"
+        animate="final"
+        className="sm:container mx-4 sm:mx-auto xl:px-24 py-12 flex flex-col gap-4"
+      >
         <h1 className="text-3xl">{challenge?.title}</h1>
 
         <Seperator />
@@ -39,7 +64,7 @@ const Challenge = () => {
         >
           Show Code
         </a>
-      </div>
+      </motion.div>
     </>
   );
 };

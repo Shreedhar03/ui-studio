@@ -1,9 +1,34 @@
 import { Link } from "react-router-dom";
 
+import { motion } from "framer-motion";
+
+const routeVariants = {
+  // transition style: pop up
+  initial: {
+    opacity: 0,
+    scale: 0.8,
+  },
+  final: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      type: "spring",
+      mass: 0.35,
+      damping: 8,
+      stiffness: 100,
+    },
+  },
+};
+
 const Home = () => {
   return (
     <>
-      <div className="mt-24 mx-4 flex flex-col items-center justify-center">
+      <motion.div
+        variants={routeVariants}
+        initial="initial"
+        animate="final"
+        className="mt-24 mx-4 flex flex-col items-center justify-center"
+      >
         <h1 className="text-4xl md:text-6xl text-center font-extralight">
           Frontend isn't just about{" "}
           <span className="font-medium underline underline-offset-4">
@@ -23,7 +48,7 @@ const Home = () => {
         >
           Explore Challenges
         </Link>
-      </div>
+      </motion.div>
     </>
   );
 };
