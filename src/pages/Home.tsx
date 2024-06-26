@@ -35,7 +35,7 @@ const Home = () => {
             centering divs!
           </span>
         </h1>
-        <p className="text-3xl mt-6 text-center font-light">
+        <p className="text-xl md:text-3xl mt-8 text-center font-light">
           Improve your skills with{" "}
           <a href="https://react.dev" target="_blank" className="underline">
             React
