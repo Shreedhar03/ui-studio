@@ -5,7 +5,7 @@ import Projects from "../config/Challenges";
 const ListChallenges = () => {
   const router = useNavigate();
   return (
-    <div className="container mx-4 sm:mx-auto xl:px-24 py-12 flex flex-col">
+    <div className="sm:container mx-4 sm:mx-auto xl:px-24 py-12 flex flex-col">
       <h1 className="text-3xl heading">Challenges</h1>
 
       <Seperator />

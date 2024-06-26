@@ -20,7 +20,7 @@ const Challenge = () => {
 
   return (
     <>
-      <div className="container mx-4 sm:mx-auto xl:px-24 py-12">
+      <div className="sm:container mx-4 sm:mx-auto xl:px-24 py-12">
         <h1 className="text-3xl">{challenge?.title}</h1>
         <Seperator />
 
